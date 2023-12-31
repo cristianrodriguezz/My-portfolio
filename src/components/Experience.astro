@@ -1,0 +1,34 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCIE = [
+  {
+    date: "Marzo 2023 - Noviembre 2023",
+    title: "Desarrollador Back-End - Service Agenda",
+    description:
+      "Desarrollé una aplicación web de reserva de turnos con autenticación segura (JWT) y gestión de permisos. Utilicé PostgreSQL para el modelo de datos, Node.js para la API y AWS S3 para cargar imágenes. Implementé medidas de seguridad, como prevención de inyección SQL y un pool de conexiones. Además, introduje estrategias de caché para aumentar la velocidad de las solicitudes.",
+    link: "",
+  },
+  {
+    date: "Enero 2023 - Marzo 2023",
+    title: "Desarrollador Full-Stack  − Categorización",
+    description:
+      "Trabaje en colaboración con ingenieros Agrimensores, en donde se trabajó en la automatización de un proceso de categorización de viviendas, donde se aumentó significativamente la eficiencia y el tiempo de la realización de la misma. Se realizó un frontend en React (responsive) y un backend en Node js",
+  },
+  {
+    date: "Octubre 2022 - Diciembre 2023",
+    title: "Desarrollador Full-Stack  − RentCar",
+    description:
+      "Lideré la creación de una API REST y una base de datos en MySQL, utilizando GitLab para el control de versiones. Enfocado en optimizar el rendimiento y crear código escalable, dirigí el desarrollo de nuevas funcionalidades y la corrección de errores en el frontend y el backend. Este proyecto, realizado como parte del programa de Digital House, sirvió como final para la carrera Certified Tech Developer (CTD), cumpliendo con éxito los requisitos en tiempo y forma.",
+  },
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>

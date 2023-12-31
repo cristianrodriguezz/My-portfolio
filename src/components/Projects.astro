@@ -1,0 +1,139 @@
+---
+import ReactJs from "./icons/ReactJs.astro"
+import Link from "./icons/Link.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import AstroIcon from "./icons/AstroIcon.astro"
+import Jwt from "./icons/Jwt.astro"
+import Node from "./icons/Node.astro"
+import MongoDB from "./icons/MongoDB.astro"
+import PostgreSQL from "./icons/PostgreSQL.astro"
+import Express from "./icons/Express.astro"
+import S3 from "./icons/S3.astro"
+import Rds from "./icons/Rds.astro"
+
+const TAGS = {
+  REACT: {
+    name: "React js",
+    class: "bg-black text-white",
+    icon: ReactJs,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#ff9105] text-white",
+    icon: AstroIcon,
+  },
+  JWT: {
+    name: "Jwt",
+    class: "bg-[#4caf50] text-white",
+    icon: Jwt,
+  },
+  NODE: {
+    name: "Node",
+    class: "bg-[#43853d] text-white",
+    icon: Node,
+  },
+  MONGO: {
+    name: "MongoDB",
+    class: "bg-[#5ABF9E] text-black font-semibold",
+    icon: MongoDB,
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-[#336791] text-white",
+    icon: PostgreSQL,
+  },
+  EXPRESS: {
+    name: "Express",
+    class: "bg-[#000000] text-white",
+    icon: Express,
+  },
+  S3: {
+    name: "Aws S3",
+    class: "bg-[#000000] text-white",
+    icon: S3,
+  },
+  RDS: {
+    name: "Aws RDS",
+    class: "bg-[#000000] text-white",
+    icon: Rds,
+  },
+
+}
+const PROJECTS = [
+  {
+    title: "Portfolios - Portafolios de desarrolladores IT que buscan empleo",
+    description: `Portfolios es la herramienta esencial para desarrolladores IT en búsqueda de empleo. Crea tu perfil personalizado con enlaces a redes sociales, GitHub y LinkedIn. Los reclutadores pueden filtrar rápidamente perfiles, facilitando la conexión con los talentos que mejor se adaptan a sus necesidades. Simplifica tu búsqueda de empleo y destaca tu potencial con Portfolios. 🌐💼🚀.`,
+    github: "https://github.com/cristianrodriguezz/temporizador-catan",
+    demo: "https://portafolios-ruddy.vercel.app/",
+    image: "/projects/repositories.jpg",
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.JWT, TAGS.NODE, TAGS.MONGO, TAGS.EXPRESS],
+  },
+  {
+    title: "Social Red - Red social",
+    description: `Social Red es una red social diseñada para ser intuitiva y sin complicaciones. 
+    Con solo registrarte, puedes compartir publicaciones, expresar tus gustos dando "Me Gusta" y cargar fotos de 
+    manera sencilla. Esta se centra en la simplicidad para que puedas conectarte
+     y compartir de forma fácil y directa. ¡Unite ahora y probá lo fácil que puede ser expresarte en línea! 🌐📸👍`,
+    github: "https://github.com/cristianrodriguezz/temporizador-catan",
+    demo: "https://social-red-frontend.vercel.app/",
+    image: "/projects/socialred.jpg",
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.JWT, TAGS.NODE, TAGS.POSTGRESQL, TAGS.S3, TAGS.RDS],
+  },
+  {
+    title: "Temorizador de Catan - Un temporizador para juego de mesa 'CATAN'",
+    description: `Creado con React Js y Tailwind CSS.La ronda en el juego de Catan se mueve hacia la izquierda en el primer turno y luego se invierte después de que el último jugador coloca su ficha.
+                  Cada jugador tiene su propio banco de tiempo, y este tiempo se agota a medida que avanza su turno.
+                  La aplicación actúa como un temporizador personalizado para cada jugador, gestionando el tiempo disponible para sus turnos.`,
+    github: "https://github.com/cristianrodriguezz/temporizador-catan",
+    demo: "https://temporizador-catan.vercel.app",
+    image: "/projects/catan.jpg",
+    tags: [TAGS.REACT, TAGS.TAILWIND],
+  },
+  {
+    title: "Transporte Marcimp - Landing page empresa de camiones.",
+    description: `Desarrollé una landing page atractiva y persuasiva para promover productos/servicios. Diseño llamativo, contenido persuasivo, y enfoque en la conversión. Adaptada para dispositivos móviles, con formulario de contacto y optimización SEO. Logré una presentación efectiva del producto, capturando leads y mejorando la visibilidad en línea.`,
+    github: "https://github.com/cristianrodriguezz/temporizador-catan",
+    demo: "https://transportemarcimp.vercel.app/",
+    image: "/projects/marcimp.jpg",
+    tags: [TAGS.ASTRO, TAGS.TAILWIND],
+  },
+]
+---
+
+{
+  PROJECTS.map(({ image, title, description, tags, demo }) => (
+    <article class="mt-10">
+      <h3 class="text-2xl font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
+        {title}
+      </h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-2 flex-row mb-2 flex-wrap">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <a href={demo} class=" group relative">
+        <Link class="hidden group-hover:block transition-all duration-300 absolute z-40 left-1/2 top-1/2 origin-center -translate-x-1/2 -translate-y-1/2"/>
+        <img
+          loading="lazy"
+          class="group rounded shadow-2xl shadow-white/10 aspect-video object-cover cursor-pointer transition duration-300 ease-in-out hover:brightness-50 "
+          src={image}
+          alt={`Captura de pantalla del proyecto ${image}`}
+        />
+      </a>
+
+    </article>
+  ))
+}
